@@ -65,8 +65,8 @@ class Samples {
     static void SendEmailToMultipleRecipients() throws EnvironmentVariableNotSetException, ApiException {
 
         // Replace '<CONTACT1 KEY>' and '<CONTACT2 KEY>' with real subscriber keys
-        final String contact1Key = "ciprian-sf";
-        final String contact2Key = "dragos-sf";
+        final String contact1Key = "<CONTACT1 KEY>";
+        final String contact2Key = "<CONTACT2 KEY>";
 
         // Environment variables instantiated client:
         Client client = new Client();
