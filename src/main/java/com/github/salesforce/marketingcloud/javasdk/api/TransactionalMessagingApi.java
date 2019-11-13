@@ -1018,7 +1018,7 @@ public class TransactionalMessagingApi extends BaseApi {
     }
     /**
      * Build call for getEmailDefinitions
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -1027,7 +1027,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailDefinitionsCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDefinitionsCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1035,14 +1035,14 @@ public class TransactionalMessagingApi extends BaseApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (status != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("$filter", filter));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("pageSize", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$pageSize", pageSize));
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$page", page));
         if (orderBy != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$orderBy", orderBy));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1077,18 +1077,18 @@ public class TransactionalMessagingApi extends BaseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailDefinitionsValidateBeforeCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailDefinitionsValidateBeforeCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { status, pageSize, page, orderBy };
+            Object[] parameterValues = { filter, pageSize, page, orderBy };
             Method method = this.getClass().getMethod("getEmailDefinitionsWithHttpInfo", String.class, BigDecimal.class, BigDecimal.class, String.class);
             Set<ConstraintViolation<TransactionalMessagingApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = getEmailDefinitionsCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = getEmailDefinitionsCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -1107,30 +1107,30 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getEmailDefinitions
      * Gets a list of email definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return GetEmailDefinitionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailDefinitionsResponse getEmailDefinitions(String status, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
-        ApiResponse<GetEmailDefinitionsResponse> resp = getEmailDefinitionsWithHttpInfo(status, pageSize, page, orderBy);
+    public GetEmailDefinitionsResponse getEmailDefinitions(String filter, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
+        ApiResponse<GetEmailDefinitionsResponse> resp = getEmailDefinitionsWithHttpInfo(filter, pageSize, page, orderBy);
         return resp.getData();
     }
 
     /**
      * getEmailDefinitions
      * Gets a list of email definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return ApiResponse&lt;GetEmailDefinitionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailDefinitionsResponse> getEmailDefinitionsWithHttpInfo( String status,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
-        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, null, null);
+    public ApiResponse<GetEmailDefinitionsResponse> getEmailDefinitionsWithHttpInfo( String filter,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, null, null);
         Type localVarReturnType = new TypeToken<GetEmailDefinitionsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1138,7 +1138,7 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getEmailDefinitions (asynchronously)
      * Gets a list of email definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -1146,7 +1146,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailDefinitionsAsync(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetEmailDefinitionsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDefinitionsAsync(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetEmailDefinitionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1167,7 +1167,7 @@ public class TransactionalMessagingApi extends BaseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetEmailDefinitionsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2022,7 +2022,7 @@ public class TransactionalMessagingApi extends BaseApi {
     }
     /**
      * Build call for getSmsDefinitions
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -2031,7 +2031,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsDefinitionsCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmsDefinitionsCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2039,14 +2039,14 @@ public class TransactionalMessagingApi extends BaseApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (status != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("$filter", filter));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("pageSize", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$pageSize", pageSize));
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$page", page));
         if (orderBy != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$orderBy", orderBy));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2081,18 +2081,18 @@ public class TransactionalMessagingApi extends BaseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsDefinitionsValidateBeforeCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmsDefinitionsValidateBeforeCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { status, pageSize, page, orderBy };
+            Object[] parameterValues = { filter, pageSize, page, orderBy };
             Method method = this.getClass().getMethod("getSmsDefinitionsWithHttpInfo", String.class, BigDecimal.class, BigDecimal.class, String.class);
             Set<ConstraintViolation<TransactionalMessagingApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = getSmsDefinitionsCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = getSmsDefinitionsCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -2111,30 +2111,30 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getSmsDefinitions
      * Gets a list of SMS definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return GetSmsDefinitionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmsDefinitionsResponse getSmsDefinitions(String status, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
-        ApiResponse<GetSmsDefinitionsResponse> resp = getSmsDefinitionsWithHttpInfo(status, pageSize, page, orderBy);
+    public GetSmsDefinitionsResponse getSmsDefinitions(String filter, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
+        ApiResponse<GetSmsDefinitionsResponse> resp = getSmsDefinitionsWithHttpInfo(filter, pageSize, page, orderBy);
         return resp.getData();
     }
 
     /**
      * getSmsDefinitions
      * Gets a list of SMS definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return ApiResponse&lt;GetSmsDefinitionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmsDefinitionsResponse> getSmsDefinitionsWithHttpInfo( String status,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, null, null);
+    public ApiResponse<GetSmsDefinitionsResponse> getSmsDefinitionsWithHttpInfo( String filter,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
+        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, null, null);
         Type localVarReturnType = new TypeToken<GetSmsDefinitionsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2142,7 +2142,7 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getSmsDefinitions (asynchronously)
      * Gets a list of SMS definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -2150,7 +2150,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsDefinitionsAsync(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetSmsDefinitionsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsDefinitionsAsync(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetSmsDefinitionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2171,7 +2171,7 @@ public class TransactionalMessagingApi extends BaseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsDefinitionsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

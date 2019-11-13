@@ -345,7 +345,7 @@ No authorization required
 
 <a name="getEmailDefinitions"></a>
 # **getEmailDefinitions**
-> GetEmailDefinitionsResponse getEmailDefinitions(status, pageSize, page, orderBy)
+> GetEmailDefinitionsResponse getEmailDefinitions(filter, pageSize, page, orderBy)
 
 getEmailDefinitions
 
@@ -359,12 +359,12 @@ Gets a list of email definitions.
 
 
 TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
-String status = "status_example"; // String | Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq.
+String filter = "filter_example"; // String | Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq.
 BigDecimal pageSize = new BigDecimal(); // BigDecimal | Number of definitions, which are array elements, to return per paged response.
 BigDecimal page = new BigDecimal(); // BigDecimal | Page number to return.
 String orderBy = "orderBy_example"; // String | Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status.
 try {
-    GetEmailDefinitionsResponse result = apiInstance.getEmailDefinitions(status, pageSize, page, orderBy);
+    GetEmailDefinitionsResponse result = apiInstance.getEmailDefinitions(filter, pageSize, page, orderBy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#getEmailDefinitions");
@@ -376,7 +376,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. | [optional] [enum: active, inactive, deleted]
+ **filter** | **String**| Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. | [optional] [enum: active, inactive, deleted]
  **pageSize** | **BigDecimal**| Number of definitions, which are array elements, to return per paged response. | [optional]
  **page** | **BigDecimal**| Page number to return. | [optional]
  **orderBy** | **String**| Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. | [optional] [enum: definitionKey, name, createdDate, modifiedDate, status]
@@ -674,7 +674,7 @@ No authorization required
 
 <a name="getSmsDefinitions"></a>
 # **getSmsDefinitions**
-> GetSmsDefinitionsResponse getSmsDefinitions(status, pageSize, page, orderBy)
+> GetSmsDefinitionsResponse getSmsDefinitions(filter, pageSize, page, orderBy)
 
 getSmsDefinitions
 
@@ -688,12 +688,12 @@ Gets a list of SMS definitions.
 
 
 TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
-String status = "status_example"; // String | Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq.
+String filter = "filter_example"; // String | Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq.
 BigDecimal pageSize = new BigDecimal(); // BigDecimal | Number of definitions, which are array elements, to return per paged response.
 BigDecimal page = new BigDecimal(); // BigDecimal | Page number to return.
 String orderBy = "orderBy_example"; // String | Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status.
 try {
-    GetSmsDefinitionsResponse result = apiInstance.getSmsDefinitions(status, pageSize, page, orderBy);
+    GetSmsDefinitionsResponse result = apiInstance.getSmsDefinitions(filter, pageSize, page, orderBy);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#getSmsDefinitions");
@@ -705,7 +705,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **status** | **String**| Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. | [optional] [enum: active, inactive, deleted]
+ **filter** | **String**| Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. | [optional] [enum: active, inactive, deleted]
  **pageSize** | **BigDecimal**| Number of definitions, which are array elements, to return per paged response. | [optional]
  **page** | **BigDecimal**| Page number to return. | [optional]
  **orderBy** | **String**| Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. | [optional] [enum: definitionKey, name, createdDate, modifiedDate, status]
