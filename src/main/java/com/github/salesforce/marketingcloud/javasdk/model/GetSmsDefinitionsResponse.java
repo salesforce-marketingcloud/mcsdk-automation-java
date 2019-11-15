@@ -15,7 +15,7 @@ package com.github.salesforce.marketingcloud.javasdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateSmsDefinitionRequest;
+import com.github.salesforce.marketingcloud.javasdk.model.SmsDefinition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,7 +38,7 @@ public class GetSmsDefinitionsResponse {
   private String requestId = null;
 
   @SerializedName("definitions")
-  private List<CreateSmsDefinitionRequest> definitions = null;
+  private List<SmsDefinition> definitions = null;
 
   @SerializedName("count")
   private Integer count = null;
@@ -67,14 +67,14 @@ public class GetSmsDefinitionsResponse {
     this.requestId = requestId;
   }
 
-  public GetSmsDefinitionsResponse definitions(List<CreateSmsDefinitionRequest> definitions) {
+  public GetSmsDefinitionsResponse definitions(List<SmsDefinition> definitions) {
     this.definitions = definitions;
     return this;
   }
 
-  public GetSmsDefinitionsResponse addDefinitionsItem(CreateSmsDefinitionRequest definitionsItem) {
+  public GetSmsDefinitionsResponse addDefinitionsItem(SmsDefinition definitionsItem) {
     if (this.definitions == null) {
-      this.definitions = new ArrayList<CreateSmsDefinitionRequest>();
+      this.definitions = new ArrayList<SmsDefinition>();
     }
     this.definitions.add(definitionsItem);
     return this;
@@ -86,11 +86,11 @@ public class GetSmsDefinitionsResponse {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<CreateSmsDefinitionRequest> getDefinitions() {
+  public List<SmsDefinition> getDefinitions() {
     return definitions;
   }
 
-  public void setDefinitions(List<CreateSmsDefinitionRequest> definitions) {
+  public void setDefinitions(List<SmsDefinition> definitions) {
     this.definitions = definitions;
   }
 

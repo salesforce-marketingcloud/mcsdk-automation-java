@@ -30,7 +30,7 @@ Method | HTTP request | Description
 
 <a name="createEmailDefinition"></a>
 # **createEmailDefinition**
-> CreateEmailDefinitionRequest createEmailDefinition(body)
+> EmailDefinition createEmailDefinition(body)
 
 createEmailDefinition
 
@@ -44,9 +44,9 @@ Creates the definition for an email.
 
 
 TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
-CreateEmailDefinitionRequest body = new CreateEmailDefinitionRequest(); // CreateEmailDefinitionRequest | JSON Parameters
+EmailDefinition body = new EmailDefinition(); // EmailDefinition | JSON Parameters
 try {
-    CreateEmailDefinitionRequest result = apiInstance.createEmailDefinition(body);
+    EmailDefinition result = apiInstance.createEmailDefinition(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#createEmailDefinition");
@@ -58,11 +58,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateEmailDefinitionRequest**](CreateEmailDefinitionRequest.md)| JSON Parameters |
+ **body** | [**EmailDefinition**](EmailDefinition.md)| JSON Parameters |
 
 ### Return type
 
-[**CreateEmailDefinitionRequest**](CreateEmailDefinitionRequest.md)
+[**EmailDefinition**](EmailDefinition.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ No authorization required
 
 <a name="createSmsDefinition"></a>
 # **createSmsDefinition**
-> CreateSmsDefinitionRequest createSmsDefinition(body)
+> SmsDefinition createSmsDefinition(body)
 
 createSmsDefinition
 
@@ -89,9 +89,9 @@ Creates the definition for an SMS.
 
 
 TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
-CreateSmsDefinitionRequest body = new CreateSmsDefinitionRequest(); // CreateSmsDefinitionRequest | JSON Parameters
+SmsDefinition body = new SmsDefinition(); // SmsDefinition | JSON Parameters
 try {
-    CreateSmsDefinitionRequest result = apiInstance.createSmsDefinition(body);
+    SmsDefinition result = apiInstance.createSmsDefinition(body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#createSmsDefinition");
@@ -103,11 +103,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateSmsDefinitionRequest**](CreateSmsDefinitionRequest.md)| JSON Parameters |
+ **body** | [**SmsDefinition**](SmsDefinition.md)| JSON Parameters |
 
 ### Return type
 
-[**CreateSmsDefinitionRequest**](CreateSmsDefinitionRequest.md)
+[**SmsDefinition**](SmsDefinition.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ No authorization required
 
 <a name="getEmailDefinition"></a>
 # **getEmailDefinition**
-> CreateEmailDefinitionRequest getEmailDefinition(definitionKey)
+> EmailDefinition getEmailDefinition(definitionKey)
 
 getEmailDefinition
 
@@ -316,7 +316,7 @@ Gets email definition configuration details for a definition key.
 TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
 String definitionKey = "definitionKey_example"; // String | Unique identifier of the definition to get
 try {
-    CreateEmailDefinitionRequest result = apiInstance.getEmailDefinition(definitionKey);
+    EmailDefinition result = apiInstance.getEmailDefinition(definitionKey);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#getEmailDefinition");
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateEmailDefinitionRequest**](CreateEmailDefinitionRequest.md)
+[**EmailDefinition**](EmailDefinition.md)
 
 ### Authorization
 
@@ -629,7 +629,7 @@ No authorization required
 
 <a name="getSmsDefinition"></a>
 # **getSmsDefinition**
-> CreateSmsDefinitionRequest getSmsDefinition(definitionKey)
+> SmsDefinition getSmsDefinition(definitionKey)
 
 getSmsDefinition
 
@@ -645,7 +645,7 @@ Gets SMS definition configuration details for a definition key.
 TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
 String definitionKey = "definitionKey_example"; // String | Unique identifier of the definition to get
 try {
-    CreateSmsDefinitionRequest result = apiInstance.getSmsDefinition(definitionKey);
+    SmsDefinition result = apiInstance.getSmsDefinition(definitionKey);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#getSmsDefinition");
@@ -661,7 +661,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateSmsDefinitionRequest**](CreateSmsDefinitionRequest.md)
+[**SmsDefinition**](SmsDefinition.md)
 
 ### Authorization
 
@@ -770,7 +770,7 @@ No authorization required
 
 <a name="partiallyUpdateEmailDefinition"></a>
 # **partiallyUpdateEmailDefinition**
-> CreateEmailDefinitionRequest partiallyUpdateEmailDefinition(definitionKey, body)
+> EmailDefinition partiallyUpdateEmailDefinition(definitionKey, body)
 
 partiallyUpdateEmailDefinition
 
@@ -787,7 +787,7 @@ TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
 String definitionKey = "definitionKey_example"; // String | Unique identifier of the definition.
 UpdateEmailDefinitionRequest body = new UpdateEmailDefinitionRequest(); // UpdateEmailDefinitionRequest | JSON Parameters
 try {
-    CreateEmailDefinitionRequest result = apiInstance.partiallyUpdateEmailDefinition(definitionKey, body);
+    EmailDefinition result = apiInstance.partiallyUpdateEmailDefinition(definitionKey, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#partiallyUpdateEmailDefinition");
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateEmailDefinitionRequest**](CreateEmailDefinitionRequest.md)
+[**EmailDefinition**](EmailDefinition.md)
 
 ### Authorization
 
@@ -817,7 +817,7 @@ No authorization required
 
 <a name="partiallyUpdateSmsDefinition"></a>
 # **partiallyUpdateSmsDefinition**
-> CreateSmsDefinitionRequest partiallyUpdateSmsDefinition(definitionKey, body)
+> SmsDefinition partiallyUpdateSmsDefinition(definitionKey, body)
 
 partiallyUpdateSmsDefinition
 
@@ -834,7 +834,7 @@ TransactionalMessagingApi apiInstance = new TransactionalMessagingApi();
 String definitionKey = "definitionKey_example"; // String | Unique identifier of the definition.
 UpdateSmsDefinitionRequest body = new UpdateSmsDefinitionRequest(); // UpdateSmsDefinitionRequest | JSON Parameters
 try {
-    CreateSmsDefinitionRequest result = apiInstance.partiallyUpdateSmsDefinition(definitionKey, body);
+    SmsDefinition result = apiInstance.partiallyUpdateSmsDefinition(definitionKey, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TransactionalMessagingApi#partiallyUpdateSmsDefinition");
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateSmsDefinitionRequest**](CreateSmsDefinitionRequest.md)
+[**SmsDefinition**](SmsDefinition.md)
 
 ### Authorization
 
