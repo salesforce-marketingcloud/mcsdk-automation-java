@@ -37,8 +37,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// test CI
-
 public class CampaignApi extends BaseApi {
     public CampaignApi(String authBaseUrl, String clientId, String clientSecret, String accountId, String scope) {
         super(authBaseUrl, clientId, clientSecret, accountId, scope);
