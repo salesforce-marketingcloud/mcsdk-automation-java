@@ -54,6 +54,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+// test missing ci/1.0 in SDK repo
+
 public class TransactionalMessagingApi extends BaseApi {
     public TransactionalMessagingApi(String authBaseUrl, String clientId, String clientSecret, String accountId, String scope) {
         super(authBaseUrl, clientId, clientSecret, accountId, scope);
