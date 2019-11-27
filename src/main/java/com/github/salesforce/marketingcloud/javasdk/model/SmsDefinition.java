@@ -25,14 +25,18 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * UpdateSmsDefinitionRequest
+ * SmsDefinition
  */
 
-public class UpdateSmsDefinitionRequest {
+public class SmsDefinition {
+  @SerializedName("definitionKey")
+  private String definitionKey = null;
+
   @SerializedName("name")
   private String name = null;
 
@@ -42,13 +46,41 @@ public class UpdateSmsDefinitionRequest {
   @SerializedName("status")
   private String status = null;
 
+  @SerializedName("createdDate")
+  private OffsetDateTime createdDate = null;
+
+  @SerializedName("modifiedDate")
+  private OffsetDateTime modifiedDate = null;
+
   @SerializedName("description")
   private String description = null;
 
   @SerializedName("subscriptions")
   private SmsDefinitionSubscriptions subscriptions = null;
 
-  public UpdateSmsDefinitionRequest name(String name) {
+  @SerializedName("requestId")
+  private String requestId = null;
+
+  public SmsDefinition definitionKey(String definitionKey) {
+    this.definitionKey = definitionKey;
+    return this;
+  }
+
+   /**
+   * Unique, user-generated key to access the definition object.
+   * @return definitionKey
+  **/
+  @NotNull
+  @ApiModelProperty(required = true, value = "Unique, user-generated key to access the definition object.")
+  public String getDefinitionKey() {
+    return definitionKey;
+  }
+
+  public void setDefinitionKey(String definitionKey) {
+    this.definitionKey = definitionKey;
+  }
+
+  public SmsDefinition name(String name) {
     this.name = name;
     return this;
   }
@@ -57,7 +89,8 @@ public class UpdateSmsDefinitionRequest {
    * Name of the definition. Must be unique.
    * @return name
   **/
-  @ApiModelProperty(value = "Name of the definition. Must be unique.")
+  @NotNull
+  @ApiModelProperty(required = true, value = "Name of the definition. Must be unique.")
   public String getName() {
     return name;
   }
@@ -66,7 +99,7 @@ public class UpdateSmsDefinitionRequest {
     this.name = name;
   }
 
-  public UpdateSmsDefinitionRequest content(SmsDefinitionContent content) {
+  public SmsDefinition content(SmsDefinitionContent content) {
     this.content = content;
     return this;
   }
@@ -75,8 +108,9 @@ public class UpdateSmsDefinitionRequest {
    * Get content
    * @return content
   **/
+  @NotNull
   @Valid
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public SmsDefinitionContent getContent() {
     return content;
   }
@@ -85,7 +119,7 @@ public class UpdateSmsDefinitionRequest {
     this.content = content;
   }
 
-  public UpdateSmsDefinitionRequest status(String status) {
+  public SmsDefinition status(String status) {
     this.status = status;
     return this;
   }
@@ -103,7 +137,27 @@ public class UpdateSmsDefinitionRequest {
     this.status = status;
   }
 
-  public UpdateSmsDefinitionRequest description(String description) {
+   /**
+   * The date the object was created.
+   * @return createdDate
+  **/
+  @Valid
+  @ApiModelProperty(value = "The date the object was created.")
+  public OffsetDateTime getCreatedDate() {
+    return createdDate;
+  }
+
+   /**
+   * The date the object was modified.
+   * @return modifiedDate
+  **/
+  @Valid
+  @ApiModelProperty(value = "The date the object was modified.")
+  public OffsetDateTime getModifiedDate() {
+    return modifiedDate;
+  }
+
+  public SmsDefinition description(String description) {
     this.description = description;
     return this;
   }
@@ -121,7 +175,7 @@ public class UpdateSmsDefinitionRequest {
     this.description = description;
   }
 
-  public UpdateSmsDefinitionRequest subscriptions(SmsDefinitionSubscriptions subscriptions) {
+  public SmsDefinition subscriptions(SmsDefinitionSubscriptions subscriptions) {
     this.subscriptions = subscriptions;
     return this;
   }
@@ -130,14 +184,24 @@ public class UpdateSmsDefinitionRequest {
    * Get subscriptions
    * @return subscriptions
   **/
+  @NotNull
   @Valid
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public SmsDefinitionSubscriptions getSubscriptions() {
     return subscriptions;
   }
 
   public void setSubscriptions(SmsDefinitionSubscriptions subscriptions) {
     this.subscriptions = subscriptions;
+  }
+
+   /**
+   * The ID of the request
+   * @return requestId
+  **/
+  @ApiModelProperty(value = "The ID of the request")
+  public String getRequestId() {
+    return requestId;
   }
 
 
@@ -149,30 +213,38 @@ public class UpdateSmsDefinitionRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateSmsDefinitionRequest updateSmsDefinitionRequest = (UpdateSmsDefinitionRequest) o;
-    return Objects.equals(this.name, updateSmsDefinitionRequest.name) &&
-        Objects.equals(this.content, updateSmsDefinitionRequest.content) &&
-        Objects.equals(this.status, updateSmsDefinitionRequest.status) &&
-        Objects.equals(this.description, updateSmsDefinitionRequest.description) &&
-        Objects.equals(this.subscriptions, updateSmsDefinitionRequest.subscriptions);
+    SmsDefinition smsDefinition = (SmsDefinition) o;
+    return Objects.equals(this.definitionKey, smsDefinition.definitionKey) &&
+        Objects.equals(this.name, smsDefinition.name) &&
+        Objects.equals(this.content, smsDefinition.content) &&
+        Objects.equals(this.status, smsDefinition.status) &&
+        Objects.equals(this.createdDate, smsDefinition.createdDate) &&
+        Objects.equals(this.modifiedDate, smsDefinition.modifiedDate) &&
+        Objects.equals(this.description, smsDefinition.description) &&
+        Objects.equals(this.subscriptions, smsDefinition.subscriptions) &&
+        Objects.equals(this.requestId, smsDefinition.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, content, status, description, subscriptions);
+    return Objects.hash(definitionKey, name, content, status, createdDate, modifiedDate, description, subscriptions, requestId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateSmsDefinitionRequest {\n");
+    sb.append("class SmsDefinition {\n");
     
+    sb.append("    definitionKey: ").append(toIndentedString(definitionKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    modifiedDate: ").append(toIndentedString(modifiedDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    subscriptions: ").append(toIndentedString(subscriptions)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

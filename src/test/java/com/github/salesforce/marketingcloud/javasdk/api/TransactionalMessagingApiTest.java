@@ -63,8 +63,8 @@ public class TransactionalMessagingApiTest
         String emailDefinitionKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailDefinitionKey = createEmailDefinitionResult.getDefinitionKey();
 
             assertEquals(emailDefinition.getDefinitionKey(), createEmailDefinitionResult.getDefinitionKey());
@@ -91,8 +91,8 @@ public class TransactionalMessagingApiTest
         String smsDefinitionKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsDefinitionKey = createSmsDefinitionResult.getDefinitionKey();
 
             assertEquals(smsDefinition.getDefinitionKey(), createSmsDefinitionResult.getDefinitionKey());
@@ -118,8 +118,8 @@ public class TransactionalMessagingApiTest
      */
     @Test
     public void deleteEmailDefinitionTest() throws ApiException {
-        CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-        CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+        EmailDefinition emailDefinition = createEmailDefinitionObject();
+        EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
         String emailDefinitionToDeleteKey = createEmailDefinitionResult.getDefinitionKey();
 
         DeleteSendDefinitionResponse deleteEmailDefinitionResult = transactionalMessagingApi.deleteEmailDefinition(emailDefinitionToDeleteKey);
@@ -162,10 +162,10 @@ public class TransactionalMessagingApiTest
         String emailDefinitionQueToDeleteKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
             emailDefinition.setStatus("inactive");
 
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailDefinitionQueToDeleteKey = createEmailDefinitionResult.getDefinitionKey();
 
             DeleteQueuedMessagesForSendDefinitionResponse deleteQueuedMessagesForEmailDefinitionResult = transactionalMessagingApi.deleteQueuedMessagesForEmailDefinition(emailDefinitionQueToDeleteKey);
@@ -189,8 +189,8 @@ public class TransactionalMessagingApiTest
      */
     @Test
     public void deleteSmsDefinitionTest() throws ApiException, EnvironmentVariableNotSetException {
-        CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-        CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+        SmsDefinition smsDefinition = createSmsDefinitionObject();
+        SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
         String smsDefinitionToDeleteKey = createSmsDefinitionResult.getDefinitionKey();
 
         DeleteSendDefinitionResponse deleteSmsDefinitionResult = transactionalMessagingApi.deleteSmsDefinition(smsDefinitionToDeleteKey);
@@ -233,10 +233,10 @@ public class TransactionalMessagingApiTest
         String smsDefinitionQueToDeleteKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
             smsDefinition.setStatus("inactive");
 
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsDefinitionQueToDeleteKey = createSmsDefinitionResult.getDefinitionKey();
 
             DeleteQueuedMessagesForSendDefinitionResponse deleteQueuedMessagesForSmsDefinitionResult = transactionalMessagingApi.deleteQueuedMessagesForSmsDefinition(smsDefinitionQueToDeleteKey);
@@ -263,11 +263,11 @@ public class TransactionalMessagingApiTest
         String emailDefinitionToRetrieveKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailDefinitionToRetrieveKey = createEmailDefinitionResult.getDefinitionKey();
 
-            CreateEmailDefinitionRequest getEmailDefinitionsResult = transactionalMessagingApi.getEmailDefinition(emailDefinitionToRetrieveKey);
+            EmailDefinition getEmailDefinitionsResult = transactionalMessagingApi.getEmailDefinition(emailDefinitionToRetrieveKey);
 
             assertEquals(emailDefinition.getDefinitionKey(), getEmailDefinitionsResult.getDefinitionKey());
             assertEquals(emailDefinition.getName(), getEmailDefinitionsResult.getName());
@@ -315,8 +315,8 @@ public class TransactionalMessagingApiTest
         String emailToSendToRecipientKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailToSendToRecipientKey = createEmailDefinitionResult.getDefinitionKey();
 
             Recipient recipient = new Recipient();
@@ -378,8 +378,8 @@ public class TransactionalMessagingApiTest
         String emailDefinitionQueueMetricsToReceiveKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailDefinitionQueueMetricsToReceiveKey = createEmailDefinitionResult.getDefinitionKey();
 
             GetQueueMetricsForSendDefinitionResponse getQueueMetricsForEmailDefinitionResult = transactionalMessagingApi.getQueueMetricsForEmailDefinition(emailDefinitionQueueMetricsToReceiveKey);
@@ -408,8 +408,8 @@ public class TransactionalMessagingApiTest
         String smsDefinitionQueueMetricsToReceiveKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsDefinitionQueueMetricsToReceiveKey = createSmsDefinitionResult.getDefinitionKey();
 
             GetQueueMetricsForSendDefinitionResponse getQueueMetricsForSmsDefinitionResult = transactionalMessagingApi.getQueueMetricsForSmsDefinition(smsDefinitionQueueMetricsToReceiveKey);
@@ -457,11 +457,11 @@ public class TransactionalMessagingApiTest
         String smsDefinitionToRetrieveKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsDefinitionToRetrieveKey = createSmsDefinitionResult.getDefinitionKey();
 
-            CreateSmsDefinitionRequest getSmsDefinitionResult = transactionalMessagingApi.getSmsDefinition(smsDefinitionToRetrieveKey);
+            SmsDefinition getSmsDefinitionResult = transactionalMessagingApi.getSmsDefinition(smsDefinitionToRetrieveKey);
 
             assertEquals(smsDefinition.getDefinitionKey(), getSmsDefinitionResult.getDefinitionKey());
             assertEquals(smsDefinition.getName(), getSmsDefinitionResult.getName());
@@ -511,8 +511,8 @@ public class TransactionalMessagingApiTest
         String smsToSendToRecipientKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsToSendToRecipientKey = createSmsDefinitionResult.getDefinitionKey();
 
             Recipient recipient = new Recipient();
@@ -555,13 +555,13 @@ public class TransactionalMessagingApiTest
         String emailDefinitionToPartiallyUpdateKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailDefinitionToPartiallyUpdateKey = createEmailDefinitionResult.getDefinitionKey();
 
             UpdateEmailDefinitionRequest updatedDefinitionDescription = new UpdateEmailDefinitionRequest();
             updatedDefinitionDescription.setDescription("Updated email definition description");
-            CreateEmailDefinitionRequest partiallyUpdateEmailDefinitionResult = transactionalMessagingApi.partiallyUpdateEmailDefinition(emailDefinitionToPartiallyUpdateKey, updatedDefinitionDescription);
+            EmailDefinition partiallyUpdateEmailDefinitionResult = transactionalMessagingApi.partiallyUpdateEmailDefinition(emailDefinitionToPartiallyUpdateKey, updatedDefinitionDescription);
 
             assertEquals(updatedDefinitionDescription.getDescription(), partiallyUpdateEmailDefinitionResult.getDescription());
 
@@ -589,13 +589,13 @@ public class TransactionalMessagingApiTest
         String smsDefinitionToPartiallyUpdateKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsDefinitionToPartiallyUpdateKey = createSmsDefinitionResult.getDefinitionKey();
 
             UpdateSmsDefinitionRequest updatedDefinitionDescription = new UpdateSmsDefinitionRequest();
             updatedDefinitionDescription.setDescription("Updated SMS definition description");
-            CreateSmsDefinitionRequest partiallyUpdateSmsDefinitionResult = transactionalMessagingApi.partiallyUpdateSmsDefinition(smsDefinitionToPartiallyUpdateKey, updatedDefinitionDescription);
+            SmsDefinition partiallyUpdateSmsDefinitionResult = transactionalMessagingApi.partiallyUpdateSmsDefinition(smsDefinitionToPartiallyUpdateKey, updatedDefinitionDescription);
 
             assertEquals(updatedDefinitionDescription.getDescription(), partiallyUpdateSmsDefinitionResult.getDescription());
 
@@ -625,8 +625,8 @@ public class TransactionalMessagingApiTest
         String emailToSendToRecipientsKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailToSendToRecipientsKey = createEmailDefinitionResult.getDefinitionKey();
 
             Recipient recipient1 = new Recipient();
@@ -667,8 +667,8 @@ public class TransactionalMessagingApiTest
         String emailToSendToRecipientKey = null;
 
         try {
-            CreateEmailDefinitionRequest emailDefinition = createEmailDefinitionObject();
-            CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+            EmailDefinition emailDefinition = createEmailDefinitionObject();
+            EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
             emailToSendToRecipientKey = createEmailDefinitionResult.getDefinitionKey();
 
             Recipient recipient = new Recipient();
@@ -706,8 +706,8 @@ public class TransactionalMessagingApiTest
         String smsToSendToRecipientsKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsToSendToRecipientsKey = createSmsDefinitionResult.getDefinitionKey();
 
             Recipient recipient1 = new Recipient();
@@ -748,8 +748,8 @@ public class TransactionalMessagingApiTest
         String smsToSendToRecipientKey = null;
 
         try {
-            CreateSmsDefinitionRequest smsDefinition = createSmsDefinitionObject();
-            CreateSmsDefinitionRequest createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
+            SmsDefinition smsDefinition = createSmsDefinitionObject();
+            SmsDefinition createSmsDefinitionResult = transactionalMessagingApi.createSmsDefinition(smsDefinition);
             smsToSendToRecipientKey = createSmsDefinitionResult.getDefinitionKey();
 
             Recipient recipient = new Recipient();
@@ -774,16 +774,16 @@ public class TransactionalMessagingApiTest
         }
     }
 
-    private CreateSmsDefinitionRequest createSmsDefinitionObject() throws EnvironmentVariableNotSetException {
-        CreateSmsDefinitionSubscriptions subscriptions = new CreateSmsDefinitionSubscriptions();
+    private SmsDefinition createSmsDefinitionObject() throws EnvironmentVariableNotSetException {
+        SmsDefinitionSubscriptions subscriptions = new SmsDefinitionSubscriptions();
         subscriptions.setShortCode(configProvider.get(EnvVariableName.SHORT_CODE));
         subscriptions.setCountryCode("US");
         subscriptions.setKeyword(configProvider.get(EnvVariableName.KEYWORD));
 
-        CreateSmsDefinitionContent content = new CreateSmsDefinitionContent();
+        SmsDefinitionContent content = new SmsDefinitionContent();
         content.setMessage("Content message");
 
-        CreateSmsDefinitionRequest smsDefinition = new CreateSmsDefinitionRequest();
+        SmsDefinition smsDefinition = new SmsDefinition();
         smsDefinition.setDefinitionKey(UUID.randomUUID().toString());
         smsDefinition.setName(UUID.randomUUID().toString());
         smsDefinition.setContent(content);
@@ -792,19 +792,19 @@ public class TransactionalMessagingApiTest
         return smsDefinition;
     }
 
-    private CreateEmailDefinitionRequest createEmailDefinitionObject() throws ApiException {
+    private EmailDefinition createEmailDefinitionObject() throws ApiException {
         Asset emailAsset = createAsset();
 
         Asset createAssetResult = assetApi.createAsset(emailAsset);
         String customerKey = createAssetResult.getCustomerKey();
 
-        CreateEmailDefinitionContent content = new CreateEmailDefinitionContent();
+        EmailDefinitionContent content = new EmailDefinitionContent();
         content.setCustomerKey(customerKey);
 
-        CreateEmailDefinitionSubscriptions subscriptions = new CreateEmailDefinitionSubscriptions();
+        EmailDefinitionSubscriptions subscriptions = new EmailDefinitionSubscriptions();
         subscriptions.setList("All Subscribers");
 
-        CreateEmailDefinitionRequest emailDefinition = new CreateEmailDefinitionRequest();
+        EmailDefinition emailDefinition = new EmailDefinition();
         emailDefinition.setName(UUID.randomUUID().toString());
         emailDefinition.setDefinitionKey(UUID.randomUUID().toString());
         emailDefinition.setContent(content);
