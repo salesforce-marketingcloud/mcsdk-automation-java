@@ -15,9 +15,9 @@ package com.github.salesforce.marketingcloud.javasdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateEmailDefinitionContent;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateEmailDefinitionOptionsRequest;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateEmailDefinitionSubscriptions;
+import com.github.salesforce.marketingcloud.javasdk.model.EmailDefinitionContent;
+import com.github.salesforce.marketingcloud.javasdk.model.EmailDefinitionOptions;
+import com.github.salesforce.marketingcloud.javasdk.model.EmailDefinitionSubscriptions;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,7 +38,7 @@ public class UpdateEmailDefinitionRequest {
   private String name = null;
 
   @SerializedName("content")
-  private CreateEmailDefinitionContent content = null;
+  private EmailDefinitionContent content = null;
 
   @SerializedName("status")
   private String status = null;
@@ -50,10 +50,10 @@ public class UpdateEmailDefinitionRequest {
   private String classification = null;
 
   @SerializedName("subscriptions")
-  private CreateEmailDefinitionSubscriptions subscriptions = null;
+  private EmailDefinitionSubscriptions subscriptions = null;
 
   @SerializedName("options")
-  private CreateEmailDefinitionOptionsRequest options = null;
+  private EmailDefinitionOptions options = null;
 
   public UpdateEmailDefinitionRequest name(String name) {
     this.name = name;
@@ -73,7 +73,7 @@ public class UpdateEmailDefinitionRequest {
     this.name = name;
   }
 
-  public UpdateEmailDefinitionRequest content(CreateEmailDefinitionContent content) {
+  public UpdateEmailDefinitionRequest content(EmailDefinitionContent content) {
     this.content = content;
     return this;
   }
@@ -84,11 +84,11 @@ public class UpdateEmailDefinitionRequest {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public CreateEmailDefinitionContent getContent() {
+  public EmailDefinitionContent getContent() {
     return content;
   }
 
-  public void setContent(CreateEmailDefinitionContent content) {
+  public void setContent(EmailDefinitionContent content) {
     this.content = content;
   }
 
@@ -146,7 +146,7 @@ public class UpdateEmailDefinitionRequest {
     this.classification = classification;
   }
 
-  public UpdateEmailDefinitionRequest subscriptions(CreateEmailDefinitionSubscriptions subscriptions) {
+  public UpdateEmailDefinitionRequest subscriptions(EmailDefinitionSubscriptions subscriptions) {
     this.subscriptions = subscriptions;
     return this;
   }
@@ -157,15 +157,15 @@ public class UpdateEmailDefinitionRequest {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public CreateEmailDefinitionSubscriptions getSubscriptions() {
+  public EmailDefinitionSubscriptions getSubscriptions() {
     return subscriptions;
   }
 
-  public void setSubscriptions(CreateEmailDefinitionSubscriptions subscriptions) {
+  public void setSubscriptions(EmailDefinitionSubscriptions subscriptions) {
     this.subscriptions = subscriptions;
   }
 
-  public UpdateEmailDefinitionRequest options(CreateEmailDefinitionOptionsRequest options) {
+  public UpdateEmailDefinitionRequest options(EmailDefinitionOptions options) {
     this.options = options;
     return this;
   }
@@ -176,11 +176,11 @@ public class UpdateEmailDefinitionRequest {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public CreateEmailDefinitionOptionsRequest getOptions() {
+  public EmailDefinitionOptions getOptions() {
     return options;
   }
 
-  public void setOptions(CreateEmailDefinitionOptionsRequest options) {
+  public void setOptions(EmailDefinitionOptions options) {
     this.options = options;
   }
 

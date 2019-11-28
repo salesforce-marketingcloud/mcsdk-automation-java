@@ -15,7 +15,7 @@ package com.github.salesforce.marketingcloud.javasdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateEmailDefinitionRequest;
+import com.github.salesforce.marketingcloud.javasdk.model.EmailDefinition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,7 +38,7 @@ public class GetEmailDefinitionsResponse {
   private String requestId = null;
 
   @SerializedName("definitions")
-  private List<CreateEmailDefinitionRequest> definitions = null;
+  private List<EmailDefinition> definitions = null;
 
   @SerializedName("count")
   private Integer count = null;
@@ -67,14 +67,14 @@ public class GetEmailDefinitionsResponse {
     this.requestId = requestId;
   }
 
-  public GetEmailDefinitionsResponse definitions(List<CreateEmailDefinitionRequest> definitions) {
+  public GetEmailDefinitionsResponse definitions(List<EmailDefinition> definitions) {
     this.definitions = definitions;
     return this;
   }
 
-  public GetEmailDefinitionsResponse addDefinitionsItem(CreateEmailDefinitionRequest definitionsItem) {
+  public GetEmailDefinitionsResponse addDefinitionsItem(EmailDefinition definitionsItem) {
     if (this.definitions == null) {
-      this.definitions = new ArrayList<CreateEmailDefinitionRequest>();
+      this.definitions = new ArrayList<EmailDefinition>();
     }
     this.definitions.add(definitionsItem);
     return this;
@@ -86,11 +86,11 @@ public class GetEmailDefinitionsResponse {
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<CreateEmailDefinitionRequest> getDefinitions() {
+  public List<EmailDefinition> getDefinitions() {
     return definitions;
   }
 
-  public void setDefinitions(List<CreateEmailDefinitionRequest> definitions) {
+  public void setDefinitions(List<EmailDefinition> definitions) {
     this.definitions = definitions;
   }
 

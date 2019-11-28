@@ -31,10 +31,9 @@ import java.lang.reflect.Type;
 
 import com.github.salesforce.marketingcloud.javasdk.model.ApiError;
 import java.math.BigDecimal;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateEmailDefinitionRequest;
-import com.github.salesforce.marketingcloud.javasdk.model.CreateSmsDefinitionRequest;
 import com.github.salesforce.marketingcloud.javasdk.model.DeleteQueuedMessagesForSendDefinitionResponse;
 import com.github.salesforce.marketingcloud.javasdk.model.DeleteSendDefinitionResponse;
+import com.github.salesforce.marketingcloud.javasdk.model.EmailDefinition;
 import com.github.salesforce.marketingcloud.javasdk.model.GetDefinitionSendStatusForRecipientResponse;
 import com.github.salesforce.marketingcloud.javasdk.model.GetDefinitionsNotSentToRecipientsResponse;
 import com.github.salesforce.marketingcloud.javasdk.model.GetEmailDefinitionsResponse;
@@ -46,6 +45,7 @@ import com.github.salesforce.marketingcloud.javasdk.model.SendEmailToMultipleRec
 import com.github.salesforce.marketingcloud.javasdk.model.SendEmailToSingleRecipientRequest;
 import com.github.salesforce.marketingcloud.javasdk.model.SendSmsToMultipleRecipientsRequest;
 import com.github.salesforce.marketingcloud.javasdk.model.SendSmsToSingleRecipientRequest;
+import com.github.salesforce.marketingcloud.javasdk.model.SmsDefinition;
 import com.github.salesforce.marketingcloud.javasdk.model.UpdateEmailDefinitionRequest;
 import com.github.salesforce.marketingcloud.javasdk.model.UpdateSmsDefinitionRequest;
 
@@ -67,7 +67,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createEmailDefinitionCall(CreateEmailDefinitionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createEmailDefinitionCall(EmailDefinition body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -109,13 +109,13 @@ public class TransactionalMessagingApi extends BaseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createEmailDefinitionValidateBeforeCall(CreateEmailDefinitionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createEmailDefinitionValidateBeforeCall(EmailDefinition body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { body };
-            Method method = this.getClass().getMethod("createEmailDefinitionWithHttpInfo", CreateEmailDefinitionRequest.class);
+            Method method = this.getClass().getMethod("createEmailDefinitionWithHttpInfo", EmailDefinition.class);
             Set<ConstraintViolation<TransactionalMessagingApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -140,11 +140,11 @@ public class TransactionalMessagingApi extends BaseApi {
      * createEmailDefinition
      * Creates the definition for an email.
      * @param body JSON Parameters (required)
-     * @return CreateEmailDefinitionRequest
+     * @return EmailDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateEmailDefinitionRequest createEmailDefinition(CreateEmailDefinitionRequest body) throws ApiException {
-        ApiResponse<CreateEmailDefinitionRequest> resp = createEmailDefinitionWithHttpInfo(body);
+    public EmailDefinition createEmailDefinition(EmailDefinition body) throws ApiException {
+        ApiResponse<EmailDefinition> resp = createEmailDefinitionWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -152,12 +152,12 @@ public class TransactionalMessagingApi extends BaseApi {
      * createEmailDefinition
      * Creates the definition for an email.
      * @param body JSON Parameters (required)
-     * @return ApiResponse&lt;CreateEmailDefinitionRequest&gt;
+     * @return ApiResponse&lt;EmailDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateEmailDefinitionRequest> createEmailDefinitionWithHttpInfo( @NotNull CreateEmailDefinitionRequest body) throws ApiException {
+    public ApiResponse<EmailDefinition> createEmailDefinitionWithHttpInfo( @NotNull EmailDefinition body) throws ApiException {
         com.squareup.okhttp.Call call = createEmailDefinitionValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateEmailDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -169,7 +169,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createEmailDefinitionAsync(CreateEmailDefinitionRequest body, final ApiCallback<CreateEmailDefinitionRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call createEmailDefinitionAsync(EmailDefinition body, final ApiCallback<EmailDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -191,7 +191,7 @@ public class TransactionalMessagingApi extends BaseApi {
         }
 
         com.squareup.okhttp.Call call = createEmailDefinitionValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateEmailDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailDefinition>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -203,7 +203,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call createSmsDefinitionCall(CreateSmsDefinitionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call createSmsDefinitionCall(SmsDefinition body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -245,13 +245,13 @@ public class TransactionalMessagingApi extends BaseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createSmsDefinitionValidateBeforeCall(CreateSmsDefinitionRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call createSmsDefinitionValidateBeforeCall(SmsDefinition body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
             Object[] parameterValues = { body };
-            Method method = this.getClass().getMethod("createSmsDefinitionWithHttpInfo", CreateSmsDefinitionRequest.class);
+            Method method = this.getClass().getMethod("createSmsDefinitionWithHttpInfo", SmsDefinition.class);
             Set<ConstraintViolation<TransactionalMessagingApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
@@ -276,11 +276,11 @@ public class TransactionalMessagingApi extends BaseApi {
      * createSmsDefinition
      * Creates the definition for an SMS.
      * @param body JSON Parameters (required)
-     * @return CreateSmsDefinitionRequest
+     * @return SmsDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateSmsDefinitionRequest createSmsDefinition(CreateSmsDefinitionRequest body) throws ApiException {
-        ApiResponse<CreateSmsDefinitionRequest> resp = createSmsDefinitionWithHttpInfo(body);
+    public SmsDefinition createSmsDefinition(SmsDefinition body) throws ApiException {
+        ApiResponse<SmsDefinition> resp = createSmsDefinitionWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -288,12 +288,12 @@ public class TransactionalMessagingApi extends BaseApi {
      * createSmsDefinition
      * Creates the definition for an SMS.
      * @param body JSON Parameters (required)
-     * @return ApiResponse&lt;CreateSmsDefinitionRequest&gt;
+     * @return ApiResponse&lt;SmsDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSmsDefinitionRequest> createSmsDefinitionWithHttpInfo( @NotNull CreateSmsDefinitionRequest body) throws ApiException {
+    public ApiResponse<SmsDefinition> createSmsDefinitionWithHttpInfo( @NotNull SmsDefinition body) throws ApiException {
         com.squareup.okhttp.Call call = createSmsDefinitionValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<CreateSmsDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<SmsDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -305,7 +305,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call createSmsDefinitionAsync(CreateSmsDefinitionRequest body, final ApiCallback<CreateSmsDefinitionRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call createSmsDefinitionAsync(SmsDefinition body, final ApiCallback<SmsDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -327,7 +327,7 @@ public class TransactionalMessagingApi extends BaseApi {
         }
 
         com.squareup.okhttp.Call call = createSmsDefinitionValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateSmsDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<SmsDefinition>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -961,11 +961,11 @@ public class TransactionalMessagingApi extends BaseApi {
      * getEmailDefinition
      * Gets email definition configuration details for a definition key.
      * @param definitionKey Unique identifier of the definition to get (required)
-     * @return CreateEmailDefinitionRequest
+     * @return EmailDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateEmailDefinitionRequest getEmailDefinition(String definitionKey) throws ApiException {
-        ApiResponse<CreateEmailDefinitionRequest> resp = getEmailDefinitionWithHttpInfo(definitionKey);
+    public EmailDefinition getEmailDefinition(String definitionKey) throws ApiException {
+        ApiResponse<EmailDefinition> resp = getEmailDefinitionWithHttpInfo(definitionKey);
         return resp.getData();
     }
 
@@ -973,12 +973,12 @@ public class TransactionalMessagingApi extends BaseApi {
      * getEmailDefinition
      * Gets email definition configuration details for a definition key.
      * @param definitionKey Unique identifier of the definition to get (required)
-     * @return ApiResponse&lt;CreateEmailDefinitionRequest&gt;
+     * @return ApiResponse&lt;EmailDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateEmailDefinitionRequest> getEmailDefinitionWithHttpInfo( @NotNull String definitionKey) throws ApiException {
+    public ApiResponse<EmailDefinition> getEmailDefinitionWithHttpInfo( @NotNull String definitionKey) throws ApiException {
         com.squareup.okhttp.Call call = getEmailDefinitionValidateBeforeCall(definitionKey, null, null);
-        Type localVarReturnType = new TypeToken<CreateEmailDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -990,7 +990,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailDefinitionAsync(String definitionKey, final ApiCallback<CreateEmailDefinitionRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDefinitionAsync(String definitionKey, final ApiCallback<EmailDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1012,13 +1012,13 @@ public class TransactionalMessagingApi extends BaseApi {
         }
 
         com.squareup.okhttp.Call call = getEmailDefinitionValidateBeforeCall(definitionKey, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateEmailDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailDefinition>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getEmailDefinitions
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -1027,7 +1027,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getEmailDefinitionsCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDefinitionsCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1035,14 +1035,14 @@ public class TransactionalMessagingApi extends BaseApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (status != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("$filter", filter));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("pageSize", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$pageSize", pageSize));
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$page", page));
         if (orderBy != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$orderBy", orderBy));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -1077,18 +1077,18 @@ public class TransactionalMessagingApi extends BaseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getEmailDefinitionsValidateBeforeCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getEmailDefinitionsValidateBeforeCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { status, pageSize, page, orderBy };
+            Object[] parameterValues = { filter, pageSize, page, orderBy };
             Method method = this.getClass().getMethod("getEmailDefinitionsWithHttpInfo", String.class, BigDecimal.class, BigDecimal.class, String.class);
             Set<ConstraintViolation<TransactionalMessagingApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = getEmailDefinitionsCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = getEmailDefinitionsCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -1107,30 +1107,30 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getEmailDefinitions
      * Gets a list of email definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return GetEmailDefinitionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetEmailDefinitionsResponse getEmailDefinitions(String status, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
-        ApiResponse<GetEmailDefinitionsResponse> resp = getEmailDefinitionsWithHttpInfo(status, pageSize, page, orderBy);
+    public GetEmailDefinitionsResponse getEmailDefinitions(String filter, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
+        ApiResponse<GetEmailDefinitionsResponse> resp = getEmailDefinitionsWithHttpInfo(filter, pageSize, page, orderBy);
         return resp.getData();
     }
 
     /**
      * getEmailDefinitions
      * Gets a list of email definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return ApiResponse&lt;GetEmailDefinitionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetEmailDefinitionsResponse> getEmailDefinitionsWithHttpInfo( String status,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
-        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, null, null);
+    public ApiResponse<GetEmailDefinitionsResponse> getEmailDefinitionsWithHttpInfo( String filter,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
+        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, null, null);
         Type localVarReturnType = new TypeToken<GetEmailDefinitionsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1138,7 +1138,7 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getEmailDefinitions (asynchronously)
      * Gets a list of email definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -1146,7 +1146,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getEmailDefinitionsAsync(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetEmailDefinitionsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getEmailDefinitionsAsync(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetEmailDefinitionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1167,7 +1167,7 @@ public class TransactionalMessagingApi extends BaseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getEmailDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetEmailDefinitionsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1965,11 +1965,11 @@ public class TransactionalMessagingApi extends BaseApi {
      * getSmsDefinition
      * Gets SMS definition configuration details for a definition key.
      * @param definitionKey Unique identifier of the definition to get (required)
-     * @return CreateSmsDefinitionRequest
+     * @return SmsDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateSmsDefinitionRequest getSmsDefinition(String definitionKey) throws ApiException {
-        ApiResponse<CreateSmsDefinitionRequest> resp = getSmsDefinitionWithHttpInfo(definitionKey);
+    public SmsDefinition getSmsDefinition(String definitionKey) throws ApiException {
+        ApiResponse<SmsDefinition> resp = getSmsDefinitionWithHttpInfo(definitionKey);
         return resp.getData();
     }
 
@@ -1977,12 +1977,12 @@ public class TransactionalMessagingApi extends BaseApi {
      * getSmsDefinition
      * Gets SMS definition configuration details for a definition key.
      * @param definitionKey Unique identifier of the definition to get (required)
-     * @return ApiResponse&lt;CreateSmsDefinitionRequest&gt;
+     * @return ApiResponse&lt;SmsDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSmsDefinitionRequest> getSmsDefinitionWithHttpInfo( @NotNull String definitionKey) throws ApiException {
+    public ApiResponse<SmsDefinition> getSmsDefinitionWithHttpInfo( @NotNull String definitionKey) throws ApiException {
         com.squareup.okhttp.Call call = getSmsDefinitionValidateBeforeCall(definitionKey, null, null);
-        Type localVarReturnType = new TypeToken<CreateSmsDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<SmsDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1994,7 +1994,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsDefinitionAsync(String definitionKey, final ApiCallback<CreateSmsDefinitionRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsDefinitionAsync(String definitionKey, final ApiCallback<SmsDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2016,13 +2016,13 @@ public class TransactionalMessagingApi extends BaseApi {
         }
 
         com.squareup.okhttp.Call call = getSmsDefinitionValidateBeforeCall(definitionKey, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateSmsDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<SmsDefinition>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for getSmsDefinitions
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -2031,7 +2031,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getSmsDefinitionsCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call getSmsDefinitionsCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2039,14 +2039,14 @@ public class TransactionalMessagingApi extends BaseApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (status != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("status", status));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("$filter", filter));
         if (pageSize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("pageSize", pageSize));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$pageSize", pageSize));
         if (page != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("page", page));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$page", page));
         if (orderBy != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("orderBy", orderBy));
+        localVarQueryParams.addAll(apiClient.parameterToPair("$orderBy", orderBy));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -2081,18 +2081,18 @@ public class TransactionalMessagingApi extends BaseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getSmsDefinitionsValidateBeforeCall(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call getSmsDefinitionsValidateBeforeCall(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         try {
             ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
             ExecutableValidator executableValidator = factory.getValidator().forExecutables();
 
-            Object[] parameterValues = { status, pageSize, page, orderBy };
+            Object[] parameterValues = { filter, pageSize, page, orderBy };
             Method method = this.getClass().getMethod("getSmsDefinitionsWithHttpInfo", String.class, BigDecimal.class, BigDecimal.class, String.class);
             Set<ConstraintViolation<TransactionalMessagingApi>> violations = executableValidator.validateParameters(this, method,
                     parameterValues);
 
             if (violations.size() == 0) {
-                com.squareup.okhttp.Call call = getSmsDefinitionsCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+                com.squareup.okhttp.Call call = getSmsDefinitionsCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
                 return call;
 
             } else {
@@ -2111,30 +2111,30 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getSmsDefinitions
      * Gets a list of SMS definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return GetSmsDefinitionsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public GetSmsDefinitionsResponse getSmsDefinitions(String status, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
-        ApiResponse<GetSmsDefinitionsResponse> resp = getSmsDefinitionsWithHttpInfo(status, pageSize, page, orderBy);
+    public GetSmsDefinitionsResponse getSmsDefinitions(String filter, BigDecimal pageSize, BigDecimal page, String orderBy) throws ApiException {
+        ApiResponse<GetSmsDefinitionsResponse> resp = getSmsDefinitionsWithHttpInfo(filter, pageSize, page, orderBy);
         return resp.getData();
     }
 
     /**
      * getSmsDefinitions
      * Gets a list of SMS definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
      * @return ApiResponse&lt;GetSmsDefinitionsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<GetSmsDefinitionsResponse> getSmsDefinitionsWithHttpInfo( String status,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
-        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, null, null);
+    public ApiResponse<GetSmsDefinitionsResponse> getSmsDefinitionsWithHttpInfo( String filter,  BigDecimal pageSize,  BigDecimal page,  String orderBy) throws ApiException {
+        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, null, null);
         Type localVarReturnType = new TypeToken<GetSmsDefinitionsResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -2142,7 +2142,7 @@ public class TransactionalMessagingApi extends BaseApi {
     /**
      * getSmsDefinitions (asynchronously)
      * Gets a list of SMS definitions.
-     * @param status Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
+     * @param filter Filter by status type. Accepted values are active, inactive, or deleted. Valid operations are eq and neq. (optional)
      * @param pageSize Number of definitions, which are array elements, to return per paged response. (optional)
      * @param page Page number to return. (optional)
      * @param orderBy Sort by a dimension. You can sort by only one dimension. Accepted values are definitionKey, name, createdDate, modifiedDate, and status. (optional)
@@ -2150,7 +2150,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getSmsDefinitionsAsync(String status, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetSmsDefinitionsResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call getSmsDefinitionsAsync(String filter, BigDecimal pageSize, BigDecimal page, String orderBy, final ApiCallback<GetSmsDefinitionsResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2171,7 +2171,7 @@ public class TransactionalMessagingApi extends BaseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(status, pageSize, page, orderBy, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = getSmsDefinitionsValidateBeforeCall(filter, pageSize, page, orderBy, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<GetSmsDefinitionsResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -2397,11 +2397,11 @@ public class TransactionalMessagingApi extends BaseApi {
      * Updates a specific email definition.
      * @param definitionKey Unique identifier of the definition. (required)
      * @param body JSON Parameters (required)
-     * @return CreateEmailDefinitionRequest
+     * @return EmailDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateEmailDefinitionRequest partiallyUpdateEmailDefinition(String definitionKey, UpdateEmailDefinitionRequest body) throws ApiException {
-        ApiResponse<CreateEmailDefinitionRequest> resp = partiallyUpdateEmailDefinitionWithHttpInfo(definitionKey, body);
+    public EmailDefinition partiallyUpdateEmailDefinition(String definitionKey, UpdateEmailDefinitionRequest body) throws ApiException {
+        ApiResponse<EmailDefinition> resp = partiallyUpdateEmailDefinitionWithHttpInfo(definitionKey, body);
         return resp.getData();
     }
 
@@ -2410,12 +2410,12 @@ public class TransactionalMessagingApi extends BaseApi {
      * Updates a specific email definition.
      * @param definitionKey Unique identifier of the definition. (required)
      * @param body JSON Parameters (required)
-     * @return ApiResponse&lt;CreateEmailDefinitionRequest&gt;
+     * @return ApiResponse&lt;EmailDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateEmailDefinitionRequest> partiallyUpdateEmailDefinitionWithHttpInfo( @NotNull String definitionKey,  @NotNull UpdateEmailDefinitionRequest body) throws ApiException {
+    public ApiResponse<EmailDefinition> partiallyUpdateEmailDefinitionWithHttpInfo( @NotNull String definitionKey,  @NotNull UpdateEmailDefinitionRequest body) throws ApiException {
         com.squareup.okhttp.Call call = partiallyUpdateEmailDefinitionValidateBeforeCall(definitionKey, body, null, null);
-        Type localVarReturnType = new TypeToken<CreateEmailDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2428,7 +2428,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call partiallyUpdateEmailDefinitionAsync(String definitionKey, UpdateEmailDefinitionRequest body, final ApiCallback<CreateEmailDefinitionRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call partiallyUpdateEmailDefinitionAsync(String definitionKey, UpdateEmailDefinitionRequest body, final ApiCallback<EmailDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2450,7 +2450,7 @@ public class TransactionalMessagingApi extends BaseApi {
         }
 
         com.squareup.okhttp.Call call = partiallyUpdateEmailDefinitionValidateBeforeCall(definitionKey, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateEmailDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<EmailDefinition>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -2538,11 +2538,11 @@ public class TransactionalMessagingApi extends BaseApi {
      * Updates a specific SMS definition.
      * @param definitionKey Unique identifier of the definition. (required)
      * @param body JSON Parameters (required)
-     * @return CreateSmsDefinitionRequest
+     * @return SmsDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public CreateSmsDefinitionRequest partiallyUpdateSmsDefinition(String definitionKey, UpdateSmsDefinitionRequest body) throws ApiException {
-        ApiResponse<CreateSmsDefinitionRequest> resp = partiallyUpdateSmsDefinitionWithHttpInfo(definitionKey, body);
+    public SmsDefinition partiallyUpdateSmsDefinition(String definitionKey, UpdateSmsDefinitionRequest body) throws ApiException {
+        ApiResponse<SmsDefinition> resp = partiallyUpdateSmsDefinitionWithHttpInfo(definitionKey, body);
         return resp.getData();
     }
 
@@ -2551,12 +2551,12 @@ public class TransactionalMessagingApi extends BaseApi {
      * Updates a specific SMS definition.
      * @param definitionKey Unique identifier of the definition. (required)
      * @param body JSON Parameters (required)
-     * @return ApiResponse&lt;CreateSmsDefinitionRequest&gt;
+     * @return ApiResponse&lt;SmsDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<CreateSmsDefinitionRequest> partiallyUpdateSmsDefinitionWithHttpInfo( @NotNull String definitionKey,  @NotNull UpdateSmsDefinitionRequest body) throws ApiException {
+    public ApiResponse<SmsDefinition> partiallyUpdateSmsDefinitionWithHttpInfo( @NotNull String definitionKey,  @NotNull UpdateSmsDefinitionRequest body) throws ApiException {
         com.squareup.okhttp.Call call = partiallyUpdateSmsDefinitionValidateBeforeCall(definitionKey, body, null, null);
-        Type localVarReturnType = new TypeToken<CreateSmsDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<SmsDefinition>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -2569,7 +2569,7 @@ public class TransactionalMessagingApi extends BaseApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call partiallyUpdateSmsDefinitionAsync(String definitionKey, UpdateSmsDefinitionRequest body, final ApiCallback<CreateSmsDefinitionRequest> callback) throws ApiException {
+    public com.squareup.okhttp.Call partiallyUpdateSmsDefinitionAsync(String definitionKey, UpdateSmsDefinitionRequest body, final ApiCallback<SmsDefinition> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -2591,7 +2591,7 @@ public class TransactionalMessagingApi extends BaseApi {
         }
 
         com.squareup.okhttp.Call call = partiallyUpdateSmsDefinitionValidateBeforeCall(definitionKey, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CreateSmsDefinitionRequest>(){}.getType();
+        Type localVarReturnType = new TypeToken<SmsDefinition>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
