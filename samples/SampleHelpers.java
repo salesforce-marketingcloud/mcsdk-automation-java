@@ -60,23 +60,23 @@ class SampleHelpers {
         return assetType;
     }
 
-    static CreateEmailDefinitionRequest createEmailDefinitionObject(AssetApi assetApi) throws ApiException {
+    static EmailDefinition createEmailDefinitionObject(AssetApi assetApi) throws ApiException {
 
-        /* Replace '<SUBSCRIBERS LIST KEY>' with the key of
+        /* Replace '<SUBSCRIBERS_LIST_KEY>' with the key of
         one of your subscribers lists or use 'All Subscribers' */
-        final String subscribersListKey = "<SUBSCRIBERS LIST KEY>";
+        final String subscribersListKey = "<SUBSCRIBERS_LIST_KEY>";
 
         Asset emailAsset = createEmailAsset();
         Asset createAssetResult = assetApi.createAsset(emailAsset);
         String customerKey = createAssetResult.getCustomerKey();
 
-        CreateEmailDefinitionContent content = new CreateEmailDefinitionContent();
+        EmailDefinitionContent content = new EmailDefinitionContent();
         content.setCustomerKey(customerKey);
 
-        CreateEmailDefinitionSubscriptions subscriptions = new CreateEmailDefinitionSubscriptions();
+        EmailDefinitionSubscriptions subscriptions = new EmailDefinitionSubscriptions();
         subscriptions.setList(subscribersListKey);
 
-        CreateEmailDefinitionRequest emailDefinition = new CreateEmailDefinitionRequest();
+        EmailDefinition emailDefinition = new EmailDefinition();
         emailDefinition.setName(UUID.randomUUID().toString());
         emailDefinition.setDefinitionKey(UUID.randomUUID().toString());
         emailDefinition.setContent(content);

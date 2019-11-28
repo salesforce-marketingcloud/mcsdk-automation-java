@@ -11,19 +11,19 @@ import java.util.List;
 class Samples {
     static void SendEmailToSingleRecipient() throws ApiException {
 
-        // Replace '<CONTACT KEY>' with a real subscriber key
-        final String contactKey = "<CONTACT KEY>";
+        // Replace '<CONTACT_KEY>' with a real subscriber key
+        final String contactKey = "<CONTACT_KEY>";
 
         /* Replace the constructor parameters with your Marketing Cloud account credentials
          * Set <APPLICATION DATA-ACCESS PERMISSIONS> to null if you want to get an access token
          * with all your data-access permissions */
 
         Client client = new Client(
-                "<AUTH BASE URL>",
-                "<CLIENT ID>",
-                "<CLIENT SECRET>",
-                "<ACCOUNT ID>",
-                "<APPLICATION DATA-ACCESS PERMISSIONS>"
+                "<AUTH_BASE_URL>",
+                "<CLIENT_ID>",
+                "<CLIENT_SECRET>",
+                "<ACCOUNT_ID>",
+                "<APPLICATION_DATA-ACCESS_PERMISSIONS>"
         );
 
         // Get the asset, transactional messaging API instances:
@@ -31,16 +31,16 @@ class Samples {
         TransactionalMessagingApi transactionalMessagingApi = client.getTransactionalMessagingApi();
 
         // Create email send definition:
-        CreateEmailDefinitionRequest emailDefinition = SampleHelpers.createEmailDefinitionObject(assetApi);
-        CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+        EmailDefinition emailDefinition = SampleHelpers.createEmailDefinitionObject(assetApi);
+        EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
 
         // Get email send definition:
-        CreateEmailDefinitionRequest getEmailDefinitionsResult = transactionalMessagingApi.getEmailDefinition(createEmailDefinitionResult.getDefinitionKey());
+        EmailDefinition getEmailDefinitionsResult = transactionalMessagingApi.getEmailDefinition(createEmailDefinitionResult.getDefinitionKey());
 
         // Update email send definition:
         UpdateEmailDefinitionRequest updatedDefinitionDescription = new UpdateEmailDefinitionRequest();
         updatedDefinitionDescription.setDescription("Updated email definition description");
-        CreateEmailDefinitionRequest partiallyUpdateEmailDefinitionResult = transactionalMessagingApi.partiallyUpdateEmailDefinition(getEmailDefinitionsResult.getDefinitionKey(), updatedDefinitionDescription);
+        EmailDefinition partiallyUpdateEmailDefinitionResult = transactionalMessagingApi.partiallyUpdateEmailDefinition(getEmailDefinitionsResult.getDefinitionKey(), updatedDefinitionDescription);
 
         // Get email send definition:
         getEmailDefinitionsResult = transactionalMessagingApi.getEmailDefinition(partiallyUpdateEmailDefinitionResult.getDefinitionKey());
@@ -64,9 +64,9 @@ class Samples {
 
     static void SendEmailToMultipleRecipients() throws EnvironmentVariableNotSetException, ApiException {
 
-        // Replace '<CONTACT1 KEY>' and '<CONTACT2 KEY>' with real subscriber keys
-        final String contact1Key = "<CONTACT1 KEY>";
-        final String contact2Key = "<CONTACT2 KEY>";
+        // Replace '<CONTACT1_KEY>' and '<CONTACT2_KEY>' with real subscriber keys
+        final String contact1Key = "<CONTACT1_KEY>";
+        final String contact2Key = "<CONTACT2_KEY>";
 
         // Environment variables instantiated client:
         Client client = new Client();
@@ -76,8 +76,8 @@ class Samples {
         TransactionalMessagingApi transactionalMessagingApi = client.getTransactionalMessagingApi();
 
         // Create email send definition:
-        CreateEmailDefinitionRequest emailDefinition = SampleHelpers.createEmailDefinitionObject(assetApi);
-        CreateEmailDefinitionRequest createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
+        EmailDefinition emailDefinition = SampleHelpers.createEmailDefinitionObject(assetApi);
+        EmailDefinition createEmailDefinitionResult = transactionalMessagingApi.createEmailDefinition(emailDefinition);
 
         Recipient recipient1 = new Recipient();
         recipient1.setContactKey(contact1Key);
