@@ -23,6 +23,3 @@
 #!docs/README.md
 
 src/**/Configuration.java
-!README.md
-!pom.xml
-!build.gradle
