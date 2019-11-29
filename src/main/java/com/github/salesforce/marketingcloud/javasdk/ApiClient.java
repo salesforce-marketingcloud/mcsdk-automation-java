@@ -86,6 +86,7 @@ public class ApiClient {
      */
     public ApiClient(RuntimeInformationProvider runtimeInformationProvider, ModelValidator modelValidator) {
         httpClient = new OkHttpClient();
+        httpClient.setReadTimeout(30, TimeUnit.SECONDS);
 
 
         verifyingSsl = true;
