@@ -4,30 +4,25 @@
     <groupId>com.github.salesforce-marketingcloud</groupId>
     <artifactId>java-sdk</artifactId>
     <packaging>jar</packaging>
-    <name>java-sdk</name>
+    <name>Salesforce Marketing Cloud Java SDK</name>
     <version>1.0.0</version>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
-    <description>Swagger Java</description>
-    <scm>
-        <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-        <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-        <url>https://github.com/swagger-api/swagger-codegen</url>
-    </scm>
+    <url>https://github.com/salesforce-marketingcloud/mcsdk-automation-java</url>
+    <description>The Salesforce Marketing Cloud Java SDK</description>
 
     <licenses>
         <license>
-            <name>Unlicense</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <name>BSD 3-Clause License</name>
+            <url>http://opensource.org/licenses/BSD-3-Clause</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <name>Swagger</name>
-            <email>apiteam@swagger.io</email>
-            <organization>Swagger</organization>
-            <organizationUrl>http://swagger.io</organizationUrl>
+            <name>Salesforce Marketing Cloud SDK Team</name>
+            <email>mc_sdk@salesforce.com</email>
+            <organization>Salesforce</organization>
+            <organizationUrl>https://www.salesforce.com/products/marketing-cloud/</organizationUrl>
         </developer>
     </developers>
 
