@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCampaign**](CampaignApi.md#createCampaign) | **POST** /hub/v1/campaigns | createCampaign
 [**deleteCampaignById**](CampaignApi.md#deleteCampaignById) | **DELETE** /hub/v1/campaigns/{id} | deleteCampaignById
+[**getAllCampaigns**](CampaignApi.md#getAllCampaigns) | **GET** /hub/v1/campaigns | getAllCampaigns
 [**getCampaignById**](CampaignApi.md#getCampaignById) | **GET** /hub/v1/campaigns/{id} | getCampaignById
 
 
@@ -88,6 +89,47 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="getAllCampaigns"></a>
+# **getAllCampaigns**
+> GetAllCampaignsResponse getAllCampaigns()
+
+getAllCampaigns
+
+Gets all campaigns.
+
+### Example
+```java
+// Import classes:
+//import com.github.salesforce.marketingcloud.javasdk.ApiException;
+//import com.github.salesforce.marketingcloud.javasdk.api.CampaignApi;
+
+
+CampaignApi apiInstance = new CampaignApi();
+try {
+    GetAllCampaignsResponse result = apiInstance.getAllCampaigns();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling CampaignApi#getAllCampaigns");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GetAllCampaignsResponse**](GetAllCampaignsResponse.md)
 
 ### Authorization
 

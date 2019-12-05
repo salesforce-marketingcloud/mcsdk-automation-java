@@ -15,7 +15,7 @@ package com.github.salesforce.marketingcloud.javasdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.github.salesforce.marketingcloud.javasdk.model.SmsDefinition;
+import com.github.salesforce.marketingcloud.javasdk.model.Campaign;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -30,15 +30,12 @@ import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
- * GetSmsDefinitionsResponse
+ * GetAllCampaignsResponse
  */
 
-public class GetSmsDefinitionsResponse {
-  @SerializedName("requestId")
-  private String requestId = null;
-
-  @SerializedName("definitions")
-  private List<SmsDefinition> definitions = null;
+public class GetAllCampaignsResponse {
+  @SerializedName("items")
+  private List<Campaign> items = null;
 
   @SerializedName("count")
   private Integer count = null;
@@ -49,52 +46,34 @@ public class GetSmsDefinitionsResponse {
   @SerializedName("pageSize")
   private Integer pageSize = null;
 
-  public GetSmsDefinitionsResponse requestId(String requestId) {
-    this.requestId = requestId;
+  public GetAllCampaignsResponse items(List<Campaign> items) {
+    this.items = items;
     return this;
   }
 
-   /**
-   * The ID of the request
-   * @return requestId
-  **/
-  @ApiModelProperty(value = "The ID of the request")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
-  public GetSmsDefinitionsResponse definitions(List<SmsDefinition> definitions) {
-    this.definitions = definitions;
-    return this;
-  }
-
-  public GetSmsDefinitionsResponse addDefinitionsItem(SmsDefinition definitionsItem) {
-    if (this.definitions == null) {
-      this.definitions = new ArrayList<SmsDefinition>();
+  public GetAllCampaignsResponse addItemsItem(Campaign itemsItem) {
+    if (this.items == null) {
+      this.items = new ArrayList<Campaign>();
     }
-    this.definitions.add(definitionsItem);
+    this.items.add(itemsItem);
     return this;
   }
 
    /**
-   * Get definitions
-   * @return definitions
+   * Get items
+   * @return items
   **/
   @Valid
   @ApiModelProperty(value = "")
-  public List<SmsDefinition> getDefinitions() {
-    return definitions;
+  public List<Campaign> getItems() {
+    return items;
   }
 
-  public void setDefinitions(List<SmsDefinition> definitions) {
-    this.definitions = definitions;
+  public void setItems(List<Campaign> items) {
+    this.items = items;
   }
 
-  public GetSmsDefinitionsResponse count(Integer count) {
+  public GetAllCampaignsResponse count(Integer count) {
     this.count = count;
     return this;
   }
@@ -112,7 +91,7 @@ public class GetSmsDefinitionsResponse {
     this.count = count;
   }
 
-  public GetSmsDefinitionsResponse page(Integer page) {
+  public GetAllCampaignsResponse page(Integer page) {
     this.page = page;
     return this;
   }
@@ -130,16 +109,16 @@ public class GetSmsDefinitionsResponse {
     this.page = page;
   }
 
-  public GetSmsDefinitionsResponse pageSize(Integer pageSize) {
+  public GetAllCampaignsResponse pageSize(Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
 
    /**
-   * Number of definitions, which are array elements, to return per paged response.
+   * Number of campaigns, which are array elements, to return per paged response.
    * @return pageSize
   **/
-  @ApiModelProperty(value = "Number of definitions, which are array elements, to return per paged response.")
+  @ApiModelProperty(value = "Number of campaigns, which are array elements, to return per paged response.")
   public Integer getPageSize() {
     return pageSize;
   }
@@ -157,27 +136,25 @@ public class GetSmsDefinitionsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetSmsDefinitionsResponse getSmsDefinitionsResponse = (GetSmsDefinitionsResponse) o;
-    return Objects.equals(this.requestId, getSmsDefinitionsResponse.requestId) &&
-        Objects.equals(this.definitions, getSmsDefinitionsResponse.definitions) &&
-        Objects.equals(this.count, getSmsDefinitionsResponse.count) &&
-        Objects.equals(this.page, getSmsDefinitionsResponse.page) &&
-        Objects.equals(this.pageSize, getSmsDefinitionsResponse.pageSize);
+    GetAllCampaignsResponse getAllCampaignsResponse = (GetAllCampaignsResponse) o;
+    return Objects.equals(this.items, getAllCampaignsResponse.items) &&
+        Objects.equals(this.count, getAllCampaignsResponse.count) &&
+        Objects.equals(this.page, getAllCampaignsResponse.page) &&
+        Objects.equals(this.pageSize, getAllCampaignsResponse.pageSize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, definitions, count, page, pageSize);
+    return Objects.hash(items, count, page, pageSize);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetSmsDefinitionsResponse {\n");
+    sb.append("class GetAllCampaignsResponse {\n");
     
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    definitions: ").append(toIndentedString(definitions)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
